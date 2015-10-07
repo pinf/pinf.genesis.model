@@ -1,0 +1,7 @@
+{
+    "$": "./aspect.0.1.ccjson.js",
+    "_meta": {
+        "aspect": "Stack",
+        "keyProperty": "namespace"
+    }
+}
