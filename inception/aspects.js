@@ -23,9 +23,15 @@ exports.forLib = function (LIB) {
                     "_segments": []
                 };
             }
-            
-            LIB._.assign(instance, aspect);
-            delete instance["$alias"];
+
+            Object.keys(aspect).forEach(function (name) {
+                if (name === "$alias") return;
+                if (!meta.record || !meta.record[name]) {
+                    console.error("Warning: Field '" + name + "' for model '" + meta.aspect + "' not declared! Ignoring.");
+                    return;
+                }
+                instance[name] = aspect[name];
+            });
 
             instance["_segments"].push(aspect);
         }

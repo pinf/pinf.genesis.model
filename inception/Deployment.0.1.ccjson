@@ -2,6 +2,38 @@
     "$": "./aspect.0.1.ccjson.js",
     "_meta": {
         "aspect": "Deployment",
-        "keyProperty": "name"
+        "keyProperty": "name",
+        "record": {
+            "id": {
+				"constraints": {
+					"unique": true
+				}
+			},
+			"name": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"type": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"platform": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"baseUrl": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"inviteInfo": {
+				"constraints": {
+					"required": true
+				}
+			}
+        }
     }
 }

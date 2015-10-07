@@ -15,9 +15,37 @@ exports.forLib = function (LIB) {
                 var config = {};
                 LIB._.merge(config, defaultConfig);
                 LIB._.merge(config, instanceConfig);
+                config = ccjson.attachDetachedFunctions(config);
 
                 if (config["_meta"]) {
                     aspects.register(config);
+                } else
+                if (config.context) {
+
+                    var context = config.context();
+                    var api = {
+                        getAspect: function (name) {
+                            return aspects.getAspect(name) || {};
+                        },
+                        getCollectionRecords: function (name) {
+                            var aspect = api.getAspect(name);
+                            var records = [];
+                            if (aspect._instances) {
+                                Object.keys(aspect._instances).forEach(function (id) {
+                                    var record = {
+                                        "id": id
+                                    };
+                                    Object.keys(aspect._meta.record).forEach(function (name) {
+                                        if (typeof aspect._instances[id][name] === "undefined") return;
+                                        record[name] = aspect._instances[id][name];
+                                    });
+                                    records.push(record);
+                                });
+                            }
+                            return records;
+                        }
+                    };
+                    context.setAdapterAPI(api);
                 }
 
                 self.AspectInstance = function (aspectConfig) {
@@ -26,6 +54,7 @@ exports.forLib = function (LIB) {
                     LIB._.merge(config, defaultConfig);
                     LIB._.merge(config, instanceConfig);
                     LIB._.merge(config, aspectConfig);
+                    config = ccjson.attachDetachedFunctions(config);
 
 //console.log("####MODEL ASPECT INSTANCE", config);
 

@@ -3,8 +3,8 @@
         "0.pinf.genesis.Aspects": {
             "$": "./inception/Aspects.0.1.ccjson"
         },
-        "0.pinf.genesis.Instance": {
-            "$": "./inception/Instance.0.1.ccjson"
+        "0.pinf.genesis.DeploymentPointer": {
+            "$": "./inception/DeploymentPointer.0.1.ccjson"
         },
         "0.pinf.genesis.Deployment": {
             "$": "./inception/Deployment.0.1.ccjson"
