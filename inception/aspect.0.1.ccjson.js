@@ -37,7 +37,7 @@ exports.forLib = function (LIB) {
 
                                         // TODO: Relocate into generic helper.
                                         var expression = new RegExp(config.match.replace(/\//g, "\\/"));
-                                        var m = expression.exec(req.url);
+                                        var m = expression.exec(req.params[0]);
                                         if (!m) return next();
                                         var uri = m[1];
                                         
