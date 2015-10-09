@@ -23,6 +23,11 @@
 				"constraints": {
 					"required": true
 				}
+			},
+			"invitePage": {
+				"constraints": {
+					"required": true
+				}
 			}
         }
     }
