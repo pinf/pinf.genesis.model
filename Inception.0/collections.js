@@ -1,7 +1,7 @@
 
 exports.forLib = function (LIB) {
 
-    const MAPPER = require("../../../../../cores/data/for/ccjson.record.mapper/0-common.api").forLib(LIB);
+    const MAPPER = require("../../../cores/data/for/ccjson.record.mapper/0-common.api").forLib(LIB);
 
     var exports = {};
 
@@ -9,12 +9,12 @@ exports.forLib = function (LIB) {
 
         return {
             configPaths: {
-                "Deployment": "./Deployment.0.1.ccjson",
-                "Developer": "./Developer.0.1.ccjson",
-                "Environment": "./Environment.0.1.ccjson",
-                "DeploymentPointer": "./DeploymentPointer.0.1.ccjson",
-                "Profile": "./Profile.0.1.ccjson",
-                "Stack": "./Stack.0.1.ccjson"
+                "Deployment": "./Deployment.0.ccjson",
+                "Developer": "./Developer.0.ccjson",
+                "Environment": "./Environment.0.ccjson",
+                "DeploymentPointer": "./DeploymentPointer.0.ccjson",
+                "Profile": "./Profile.0.ccjson",
+                "Stack": "./Stack.0.ccjson"
             },
             makeCollection: function (name, config) {
 
