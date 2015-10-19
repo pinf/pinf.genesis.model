@@ -1,7 +1,7 @@
 
 exports.forLib = function (LIB) {
 
-    const MAPPER = require("../../../cores/data/for/ccjson.record.mapper/0-common.api").forLib(LIB);
+    const MAPPER = LIB["cores/data/for/ccjson.record.mapper/0-common.api"];
 
     var exports = {};
 
